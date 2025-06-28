@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-class AIDevProjectSetup {
+class JSAIProjectSetup {
   constructor() {
     this.projectRoot = process.cwd();
     this.packageJsonPath = path.join(this.projectRoot, 'package.json');
@@ -47,8 +47,8 @@ class AIDevProjectSetup {
       const preCommitContent = `#!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# AI Development Enhanced Pre-commit
-npx ai-dev-check
+# JS AI Toolkit Enhanced Pre-commit
+npx js-ai-check
 npx lint-staged`;
 
       fs.writeFileSync('.husky/pre-commit', preCommitContent);
@@ -168,7 +168,7 @@ updates:
 
   async run() {
     try {
-      this.log('🚀 Setting up AI Development toolkit...');
+      this.log('🚀 Setting up JS AI toolkit...');
       
       this.checkPrerequisites();
       this.setupHusky();
@@ -177,7 +177,7 @@ updates:
       this.setupQualityScripts();
       this.createVSCodeSettings();
       
-      this.log('🎉 AI Development toolkit setup complete!', 'success');
+      this.log('🎉 JS AI toolkit setup complete!', 'success');
       this.log('');
       this.log('Next steps:');
       this.log('1. Install recommended VSCode extensions');
@@ -193,8 +193,8 @@ updates:
 }
 
 if (require.main === module) {
-  const setup = new AIDevProjectSetup();
+  const setup = new JSAIProjectSetup();
   setup.run();
 }
 
-module.exports = AIDevProjectSetup;
+module.exports = JSAIProjectSetup;

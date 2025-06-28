@@ -1,23 +1,30 @@
 {
-  "name": "@yourname/ai-dev-toolkit",
+  "name": "@yourname/js-ai-toolkit",
   "version": "1.0.0",
-  "description": "AI Development Toolkit - Pre-commit hooks and tools to prevent time-blindness in AI-assisted development",
+  "description": "JavaScript/TypeScript AI Development Toolkit - Pre-commit hooks and tools to prevent time-blindness in AI-assisted development",
   "main": "index.js",
   "bin": {
-    "ai-dev-check": "./bin/check-package-freshness.js",
-    "ai-dev-setup": "./bin/setup-project.js"
+    "js-ai-check": "./bin/check-package-freshness.js",
+    "js-ai-setup": "./bin/setup-project.js"
   },
   "scripts": {
     "test": "node test/test-package-freshness.js",
     "install-hooks": "node bin/setup-project.js"
   },
   "keywords": [
+    "javascript",
+    "typescript",
+    "nodejs",
+    "react",
+    "nextjs",
     "ai-development",
     "pre-commit",
     "dependency-management",
     "package-freshness",
     "time-blindness-prevention",
-    "automated-quality"
+    "automated-quality",
+    "npm",
+    "vite"
   ],
   "author": "Your Name",
   "license": "MIT",

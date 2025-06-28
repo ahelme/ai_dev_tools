@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Enhanced Pre-commit Hook for AI Development
+# Enhanced Pre-commit Hook for JS AI Development
 # Integrates with existing lint-staged setup
 # Add package freshness checks when ready
 

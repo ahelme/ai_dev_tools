@@ -46,21 +46,21 @@ This toolkit provides **automated guardrails** that prevent time-blindness issue
 ### Option 1: Automated Setup (Recommended)
 ```bash
 # For new projects
-npx @yourname/ai-dev-toolkit setup
+npx @yourname/js-ai-toolkit setup
 
 # For existing projects
-npm install --save-dev @yourname/ai-dev-toolkit
-npx ai-dev-setup
+npm install --save-dev @yourname/js-ai-toolkit
+npx js-ai-setup
 ```
 
 ### Option 2: Manual Installation
 ```bash
 # 1. Install the toolkit
-npm install --save-dev @yourname/ai-dev-toolkit
+npm install --save-dev @yourname/js-ai-toolkit
 
 # 2. Setup Husky pre-commit hooks
 npx husky install
-echo "npx ai-dev-check" > .husky/pre-commit
+echo "npx js-ai-check" > .husky/pre-commit
 
 # 3. Configure package.json scripts
 npm pkg set scripts.quality="npm run lint:check && npm run type-check && npm run test:run"
@@ -71,7 +71,7 @@ npm pkg set scripts.outdated:check="npm outdated"
 
 ### Pre-commit Validation
 - ✅ **Package Freshness Check**: Warns about outdated dependencies
-- ✅ **Security Audit**: Blocks commits with high/critical vulnerabilities
+- ✅ **Security Audit**: Blocks commits with high/critical vulnerabilities  
 - ✅ **Code Quality**: ESLint, Prettier, TypeScript checks
 - ✅ **Test Suite**: Ensures all tests pass before commit
 
@@ -90,11 +90,11 @@ npm pkg set scripts.outdated:check="npm outdated"
 
 ### Package Freshness Thresholds
 ```javascript
-// .ai-dev-config.js
+// .js-ai-config.js
 module.exports = {
   thresholds: {
     major: 365,  // 1 year for major versions
-    minor: 180,  // 6 months for minor versions
+    minor: 180,  // 6 months for minor versions  
     patch: 90,   // 3 months for patch versions
     security: 7  // 1 week for security fixes
   },
@@ -108,7 +108,7 @@ module.exports = {
 {
   "recommendations": [
     "pflannery.vscode-versionlens",
-    "codeandstuff.package-json-upgrade",
+    "codeandstuff.package-json-upgrade", 
     "snyk-security.snyk-vulnerability-scanner",
     "redhat.fabric8-analytics",
     "wix.vscode-import-cost"
@@ -123,21 +123,21 @@ module.exports = {
 # Vite replaces deprecated Create-React-App
 npm create vite@latest my-app -- --template react-ts
 cd my-app
-npx @yourname/ai-dev-toolkit setup
+npx @yourname/js-ai-toolkit setup
 ```
 
 ### Next.js Full-Stack
 ```bash
 npx create-next-app@latest my-app --typescript --tailwind --app
-cd my-app
-npx @yourname/ai-dev-toolkit setup
+cd my-app  
+npx @yourname/js-ai-toolkit setup
 ```
 
 ### Node.js Backend
 ```bash
 mkdir my-api && cd my-api
 npm init -y
-npx @yourname/ai-dev-toolkit setup
+npx @yourname/js-ai-toolkit setup
 ```
 
 ## 🔄 Development Workflow
@@ -146,7 +146,7 @@ npx @yourname/ai-dev-toolkit setup
 ```bash
 # Verify current state
 npm run outdated:check
-npm run security:audit
+npm run security:audit  
 npm run quality
 ```
 
@@ -159,7 +159,7 @@ npm run quality
 ```bash
 # Automated via pre-commit hooks
 npm run quality           # Code quality checks
-npx ai-dev-check         # Package freshness validation
+npx js-ai-check         # Package freshness validation
 npm audit --audit-level=high  # Security scan
 ```
 
@@ -168,7 +168,7 @@ npm audit --audit-level=high  # Security scan
 ### For AI Programming Assistants
 
 1. **Always verify current date** at session start
-2. **Query live package registries** before recommendations
+2. **Query live package registries** before recommendations  
 3. **Use maintained templates** rather than starting from scratch
 4. **Check package.json for existing patterns** before adding dependencies
 5. **Verify deprecation status** of any suggested tools/frameworks
@@ -178,7 +178,7 @@ npm audit --audit-level=high  # Security scan
 # ❌ NEVER start from empty directory
 mkdir my-app && cd my-app && npm init
 
-# ✅ ALWAYS use current templates
+# ✅ ALWAYS use current templates  
 npm create vite@latest my-app -- --template react-ts
 ```
 
@@ -204,15 +204,15 @@ We welcome contributions! This toolkit is designed to evolve with the rapidly ch
 
 ### Development Setup
 ```bash
-git clone https://github.com/yourname/ai-dev-toolkit
-cd ai-dev-toolkit
+git clone https://github.com/yourname/js-ai-toolkit
+cd js-ai-toolkit
 npm install
 npm test
 ```
 
 ### Adding New Checks
 1. Add your check to `lib/checks/`
-2. Update `bin/ai-dev-check.js` to include it
+2. Update `bin/js-ai-check.js` to include it
 3. Add tests in `test/`
 4. Update this README
 
