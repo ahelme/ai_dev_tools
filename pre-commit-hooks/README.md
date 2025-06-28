@@ -1,8 +1,15 @@
-# 🤖 AI Development Toolkit: JS/TS/React/Next/Node
+# 🤖 JS AI Toolkit
 
-**Preventing Time-Blindness in AI-Assisted Development**
+**Automated Guardrails for Overcoming Time-Blindness in AI-Assisted Javascript Dev**
 
-A comprehensive toolkit designed to solve the critical problem of AI models recommending outdated packages, deprecated practices, and stale dependencies due to training data cutoffs.
+A comprehensive toolkit designed to solve the following problems common to AI-assisted development:
+
+- critical problem of AI models installing outdated packages and relying on deprecated practices, and due to training data cutoffs
+ - leads to stale dependencies and cumbersome migrations further down the track 
+- models drift from best practices as context fills up, in addition to common AI eagerness to get projects scaffolded quickly, valuing 'getting it working' in the short-term, over long-term concerns
+ - leads to code quality and maintainability issues
+
+***Note***: the issue of relying on outdated documentation has been addressed by projects such as [Context 7 MCP Server https://github.com/upstash/context7]
 
 ## 🎯 The Problem
 
@@ -10,7 +17,7 @@ AI programming assistants suffer from "time-blindness" - they operate on trainin
 
 - ❌ Recommending deprecated packages (e.g., Create-React-App in 2025)
 - ❌ Installing outdated dependencies with security vulnerabilities
-- ❌ Using obsolete best practices and patterns
+- ❌ Using obsolete best practices and patterns - not caught without close review & code quality checks
 - ❌ Missing critical security updates and patches
 
 ## 🛡️  The Solution
