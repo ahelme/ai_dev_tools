@@ -1,4 +1,4 @@
-# 🤖 AI Development Toolkit
+# 🤖 AI Development Toolkit: JS/TS/React/Next/Node
 
 **Preventing Time-Blindness in AI-Assisted Development**
 
