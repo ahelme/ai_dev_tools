@@ -14,12 +14,12 @@ const path = require('path');
 const CONFIG = {
   // Maximum age thresholds (in days)
   MAJOR_VERSION_THRESHOLD: 365,    // 1 year for major versions
-  MINOR_VERSION_THRESHOLD: 180,    // 6 months for minor versions
+  MINOR_VERSION_THRESHOLD: 180,    // 6 months for minor versions  
   PATCH_VERSION_THRESHOLD: 90,     // 3 months for patch versions
-
+  
   // Security thresholds
   SECURITY_VULNERABILITY_THRESHOLD: 7,  // 1 week for security fixes
-
+  
   // Behavior options
   NETWORK_TIMEOUT: 10000,          // 10 seconds timeout for npm calls
   ALLOW_NETWORK_FAILURE: true,     // Don't block commits if npm registry is down
@@ -51,19 +51,19 @@ class PackageFreshnessChecker {
   async getOutdatedPackages() {
     try {
       this.log('Checking for outdated packages...');
-
+      
       // Use timeout to prevent hanging
       const command = `timeout ${CONFIG.NETWORK_TIMEOUT / 1000}s npm outdated --json 2>/dev/null || true`;
-      const result = execSync(command, {
+      const result = execSync(command, { 
         encoding: 'utf8',
-        timeout: CONFIG.NETWORK_TIMEOUT
+        timeout: CONFIG.NETWORK_TIMEOUT 
       });
-
+      
       if (!result.trim()) {
         this.log('All packages are up to date! ✅');
         return {};
       }
-
+      
       return JSON.parse(result);
     } catch (error) {
       if (CONFIG.ALLOW_NETWORK_FAILURE) {
@@ -80,7 +80,7 @@ class PackageFreshnessChecker {
     if (!match) return null;
     return {
       major: parseInt(match[1]),
-      minor: parseInt(match[2]),
+      minor: parseInt(match[2]), 
       patch: parseInt(match[3])
     };
   }
@@ -88,9 +88,9 @@ class PackageFreshnessChecker {
   getVersionDifference(current, latest) {
     const curr = this.parseVersion(current);
     const lat = this.parseVersion(latest);
-
+    
     if (!curr || !lat) return 'unknown';
-
+    
     if (lat.major > curr.major) return 'major';
     if (lat.minor > curr.minor) return 'minor';
     if (lat.patch > curr.patch) return 'patch';
@@ -100,18 +100,18 @@ class PackageFreshnessChecker {
   async checkSecurityVulnerabilities() {
     try {
       this.log('Checking for security vulnerabilities...');
-
-      const auditResult = execSync('npm audit --json 2>/dev/null || echo "{}"', {
+      
+      const auditResult = execSync('npm audit --json 2>/dev/null || echo "{}"', { 
         encoding: 'utf8',
-        timeout: CONFIG.NETWORK_TIMEOUT
+        timeout: CONFIG.NETWORK_TIMEOUT 
       });
-
+      
       const audit = JSON.parse(auditResult);
-
+      
       if (audit.vulnerabilities && Object.keys(audit.vulnerabilities).length > 0) {
         const highSeverity = Object.values(audit.vulnerabilities)
           .filter(vuln => ['high', 'critical'].includes(vuln.severity));
-
+        
         if (highSeverity.length > 0) {
           this.errors.push(
             `🔒 ${highSeverity.length} high/critical security vulnerabilities found! Run 'npm audit fix' before committing.`
@@ -127,7 +127,7 @@ class PackageFreshnessChecker {
 
   analyzeOutdatedPackages(outdated) {
     const packageNames = Object.keys(outdated);
-
+    
     if (packageNames.length === 0) return;
 
     this.log(`Found ${packageNames.length} outdated packages:`);
@@ -135,7 +135,7 @@ class PackageFreshnessChecker {
     for (const [packageName, info] of Object.entries(outdated)) {
       const versionDiff = this.getVersionDifference(info.current, info.latest);
       const message = `  ${packageName}: ${info.current} → ${info.latest} (${versionDiff})`;
-
+      
       switch (versionDiff) {
         case 'major':
           this.warnings.push(`📦 Major version available: ${message}`);
@@ -147,7 +147,7 @@ class PackageFreshnessChecker {
           this.errors.push(`🔧 Patch version available: ${message} - Consider updating soon`);
           break;
       }
-
+      
       this.log(message);
     }
   }
