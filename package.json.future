@@ -1,0 +1,40 @@
+{
+  "name": "@yourname/ai-dev-toolkit",
+  "version": "1.0.0",
+  "description": "AI Development Toolkit - Pre-commit hooks and tools to prevent time-blindness in AI-assisted development",
+  "main": "index.js",
+  "bin": {
+    "ai-dev-check": "./bin/check-package-freshness.js",
+    "ai-dev-setup": "./bin/setup-project.js"
+  },
+  "scripts": {
+    "test": "node test/test-package-freshness.js",
+    "install-hooks": "node bin/setup-project.js"
+  },
+  "keywords": [
+    "ai-development",
+    "pre-commit",
+    "dependency-management",
+    "package-freshness",
+    "time-blindness-prevention",
+    "automated-quality"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "semver": "^7.6.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "husky": ">=8.0.0"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "templates/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
