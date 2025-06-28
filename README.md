@@ -2,16 +2,16 @@
 
 **Automated Guardrails for Overcoming Time-Blindness in AI-Assisted Javascript Dev**
 
-A comprehensive toolkit designed to solve the following problems common to AI-assisted development:
+A comprehensive toolkit designed to work around model's training cut-off date in AI-assisted development:
 
-- critical problem of AI models installing outdated packages and relying on deprecated practices, and due to training data cutoffs
+- critical issue of AI models installing outdated packages and relying on deprecated practices, and due to training data cutoffs
  - leads to stale dependencies and cumbersome migrations further down the track 
-- models drift from best practices as context fills up, in addition to common AI eagerness to get projects scaffolded quickly, valuing 'getting it working' in the short-term, over long-term concerns
- - leads to code quality and maintainability issues
+- models drift from best practices as context fills up, in addition to common AI eagerness to get projects scaffolded quickly (valuing 'getting it working' in the short-term, over long-term concerns)
+ - leads to bugs, code quality, and maintainability issues
 
-***Note***: the issue of relying on outdated documentation has been addressed by projects such as [Context 7 MCP Server https://github.com/upstash/context7]
+***Note***: issue of relying on outdated documentation is addressed by projects including [Context 7 MCP Server https://github.com/upstash/context7]
 
-## 🎯 The Problem
+## Problem
 
 AI programming assistants suffer from "time-blindness" - they operate on training data that may be months or years old, leading to:
 
@@ -20,7 +20,7 @@ AI programming assistants suffer from "time-blindness" - they operate on trainin
 - ❌ Using obsolete best practices and patterns - not caught without close review & code quality checks
 - ❌ Missing critical security updates and patches
 
-## 🛡️  The Solution
+## Solution
 
 This toolkit provides **automated guardrails** that prevent time-blindness issues through:
 
@@ -30,7 +30,7 @@ This toolkit provides **automated guardrails** that prevent time-blindness issue
 - Automatic security vulnerability scanning
 - Network-aware checks with graceful degradation
 
-### 2. **Modern Project Templates**
+### 2. **Preference Modern Project Templates**
 - Always-current boilerplate configurations
 - Pre-configured dependency management (Renovate/Dependabot)
 - Built-in quality pipelines from day one
